@@ -22,19 +22,19 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`with commands on ${client.guilds.size} servers | +help`);
+  client.user.setActivity(`ORA ORA (prefix ¥)`);
 });
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers | +help`);
+  client.user.setActivity(`ORA ORA (prefix ¥)`);
 });
 
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  client.user.setActivity(`Serving ${client.guilds.size} servers | +help`);
+  client.user.setActivity(`ORA ORA (prefix ¥)`);
 });
 
 
@@ -141,7 +141,7 @@ client.on("message", async function(message)  {
 if(command === "help") {
     message.channel.send(helpCmds.setFooter("Requested by " + ((message.member.nickname == null) ? message.author.username : message.member.nickname), message.author.avatarURL));
   }
-if (command === "credits") message.channel.send(new Discord.RichEmbed().setTitle("Credits").addField("Fox", "Owner.").addField("Droid", "Co-owner.").addField("iSkLz", "Code help and debugger."));
+if (command === "credits") message.channel.send(new Discord.RichEmbed().setTitle("Credits").addField("Created By", "Zelframe"));
 if (message.content.startsWith(config.prefix + 'avatar')) {
     const user = message.mentions.users.first() || message.author;
     const avatarEmbed = new Discord.RichEmbed()
@@ -150,11 +150,11 @@ if (message.content.startsWith(config.prefix + 'avatar')) {
         .setImage(user.avatarURL);
     message.channel.send(avatarEmbed);
 }
-addHelpCmd("+purge", "Deletes an amount of messages");
-addHelpCmd("+ban", "Bans a user");
-addHelpCmd("+help", "Shows this list");
-addHelpCmd("+say (message)", "Makes the bot send a message");
-addHelpCmd("+ping", "Checks bot's Latency");
-addHelpCmd("+Credits", "Shows the bot's Credits");
-addHelpCmd("+avatar (user)", "Shows the avatar of the mentioned user");
+addHelpCmd("¥purge", "Deletes an amount of messages");
+addHelpCmd("¥ban", "Bans a user");
+addHelpCmd("¥help", "Shows this list");
+addHelpCmd("¥say (message)", "Makes the bot send a message");
+addHelpCmd("¥ping", "Checks bot's Latency");
+addHelpCmd("¥Credits", "Shows the bot's Credits");
+addHelpCmd("¥avatar (user)", "Shows the avatar of the mentioned user");
 client.login(config.token);
